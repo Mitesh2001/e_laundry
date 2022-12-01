@@ -81,11 +81,11 @@
                             </tr>
                             <tr>
                                 <th>Discount</th>
-                                <td>${{ $order->discount }}</td>
+                                <td>₦{{ $order->discount }}</td>
                             </tr>
                             <tr>
                                 <th>Total amount</th>
-                                <td>${{ $order->amount - $order->discount }}</td>
+                                <td>₦{{ $order->amount - $order->discount }}</td>
                             </tr>
                             <tr>
                                 <th>Total Quantity</th>

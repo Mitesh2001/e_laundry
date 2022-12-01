@@ -4,7 +4,7 @@
 
         <!-- Brand -->
         <a class="navbar-brand " href="{{ route('root') }}">
-            <img src="{{asset('web/logos/Logo.svg')}}" class="navbar-brand-img" alt="Admin Logo">
+            <img src="{{asset('web/logos/Logo.png')}}" class="navbar-brand-img" alt="Admin Logo">
         </a>
         <!-- Collapse -->
         <div>

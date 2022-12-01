@@ -24,7 +24,7 @@
                             <div class="row">
                                 <div class="col mt-3 text-right">
                                     <h4 class="card-title text-uppercase text-muted mb-0">{{__('Income')}}</h4>
-                                    <span class="display-3 text-dark font-weight-bold mb-0">${{ $income }}</span>
+                                    <span class="display-3 text-dark font-weight-bold mb-0">₦{{ $income }}</span>
                                 </div>
                                 <div class="card-icon">
                                     <div class="icon icon-shape text-white shadow">
@@ -138,7 +138,7 @@
                                 </td>
                                 <td>{{ $revenue->customer->user->name }}</td>
                                 <td>{{ $revenue->quantity }} Pieces</td>
-                                <td>${{ $revenue->amount }}</td>
+                                <td>₦{{ $revenue->amount }}</td>
                                 <td>
                                     <a href="{{ route('order.show', $revenue->id) }}" class="btn btn-primary">Details</a>
                                 </td>
@@ -150,7 +150,7 @@
                         @endforelse
                         <tr>
                             <td colspan="3" class="text-right">Total Revenue</td>
-                            <td colspan="2">${{ $revenues->sum('amount') }}</td>
+                            <td colspan="2">₦{{ $revenues->sum('amount') }}</td>
                         </tr>
                     </tbody>
                 </table>

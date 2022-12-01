@@ -54,7 +54,7 @@
                                         {{ $order->created_at->format('M d, Y') }} <br>
                                         <small>{{ $order->created_at->format('h:i a') }}</small>
                                     </td>
-                                    <td>${{ $order->amount }}</td>
+                                    <td>₦{{ $order->amount }}</td>
                                     <td>{{ $order->order_status }}</td>
                                     <td>
                                         <a href="#address{{ $order->id }}" data-toggle="modal" class="btn btn-primary">

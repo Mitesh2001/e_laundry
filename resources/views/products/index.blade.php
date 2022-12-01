@@ -54,9 +54,9 @@
                                         <img width="100" src="{{ $product->thumbnailPath }}" alt="">
                                     </td>
                                     <td>{{ $product->variant->name }}</td>
-                                    <td>${{ $product->price }}</td>
+                                    <td>₦{{ $product->price }}</td>
                                     <td>
-                                        <del>${{  $product->old_price ? $product->old_price: '00'  }}</del>
+                                        <del>₦{{  $product->old_price ? $product->old_price: '00'  }}</del>
                                     </td>
                                     <td>
                                         <label class="switch">

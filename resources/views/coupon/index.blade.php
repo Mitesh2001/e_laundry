@@ -38,7 +38,7 @@
                                     <td>{{ $coupon->code}}</td>
                                     <td>{{ $coupon->discount_type }}</td>
                                     <td>{!! $coupon->discount_type == 'amount' ? '$'.$coupon->discount : $coupon->discount.'%' !!}</td>
-                                    <td>${{ $coupon->min_amount }}</td>
+                                    <td>₦{{ $coupon->min_amount }}</td>
                                     <td>{{ Carbon\Carbon::parse($coupon->started_at)->format('M d, Y h:i a') }}</td>
                                     <td>{{ Carbon\Carbon::parse($coupon->expired_at)->format('M d, Y h:i a') }}</td>
 

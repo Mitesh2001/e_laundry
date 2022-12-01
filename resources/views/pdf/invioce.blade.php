@@ -121,7 +121,7 @@
 <body>
 
     <div class=" header">
-        <img src="{{ asset('web/logos/Logo.svg') }}" alt="">
+        <img src="{{ asset('web/logos/Logo.png') }}" alt="">
         <div>
             <h1>RECEIPT</h1>
         </div>

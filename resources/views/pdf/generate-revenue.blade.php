@@ -112,7 +112,7 @@
 
     <div class="row pt-5 mb-4 overflow-hidden">
 
-            <img class="float-left mr-4" width="180" src="{{ asset('web/logos/Logo.svg') }}" alt="">
+            <img class="float-left mr-4" width="180" src="{{ asset('web/logos/Logo.png') }}" alt="">
             <p class="m-0 float-left" style="color:#000 !important"><strong>{{ env('APP_URL') }}</strong>
                 <br>
                 Reporte Print Date: {{ now()->format('M d, Y') }}

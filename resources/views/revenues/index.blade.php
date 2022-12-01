@@ -52,7 +52,7 @@
                                             </td>
                                             <td>{{ $revenue->customer->user->name }}</td>
                                             <td>{{ $revenue->quantity }} Pieces</td>
-                                            <td>${{ $revenue->amount }}</td>
+                                            <td>₦{{ $revenue->amount }}</td>
                                             <td>
                                                 <a href="{{ route('order.show', $revenue->id) }}" class="btn btn-primary">Details</a>
                                             </td>
@@ -64,7 +64,7 @@
                                     @endforelse
                                     <tr>
                                         <td colspan="3" class="text-right">Total Revenue</td>
-                                        <td>${{ $revenues->sum('amount') }}</td>
+                                        <td>₦{{ $revenues->sum('amount') }}</td>
                                         <td>
                                             <a class="btn btn-warning"
                                             href="{{ route('revenue.generate.pdf', ['from' => \request('from'), 'to' => \request('to')]) }}">Print Report</a>
