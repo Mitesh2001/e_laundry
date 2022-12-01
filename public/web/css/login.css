@@ -1,0 +1,146 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    color: #001733 !important;
+}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+.login{
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    height: 100vh;
+    position: relative;
+}
+.custome{
+    border-radius: 15px !important;
+    box-shadow: 19px 21px 5px 0px rgba(0,0,0,0.09);
+}
+form{
+    padding: 35px 60px;
+}
+.input{
+    position: relative;
+    flex-wrap: nowrap;
+}
+.eye{
+    position: absolute;
+    right: 10px;
+    top: calc(50% - 10px);
+}
+.card{
+    width: 570px;
+}
+.header img{
+    margin-bottom: 40px;
+}
+.header h3{
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+.header p{
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+.btncustom{
+    background-color: #513AFF !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    color: #fff !important;
+    padding: 16px 0 !important;
+}
+.inputBox{
+    margin-bottom: 25px;
+}
+.inputfield{
+     padding: 25px  !important;
+}
+.checkbox{
+    margin-bottom: 25px !important;
+}
+
+@media (max-width: 1199px){
+    .form-size {
+    height: 685px;
+    }
+    form {
+    padding: 74px 52px;
+    }
+    .header img {
+    margin-bottom: 33px;
+    }
+    .header h3 {
+    margin-bottom: 22px;
+    }
+    .inputBox {
+    margin-bottom: 23px;
+    }
+    .inputfield {
+    padding: 22px !important;
+    }
+}
+@media (max-width: 991px){
+    .form-size {
+    height: 670px;
+    }
+    form {
+        padding: 69px 50px;
+    }
+    .header img {
+    margin-bottom: 32px;
+    }
+    .inputfield {
+    padding: 21px !important;
+    }
+}
+@media (max-width: 767px){
+    .card {
+    width: 521px;
+    }
+    .form-size {
+    height: 635px;
+    }
+    .header img {
+    margin-bottom: 26px;
+    width: 55%;
+    }
+    .inputfield {
+    padding: 20px !important;
+    }
+    .btncustom {
+    padding: 13px 0 !important;
+    }
+}
+@media (max-width: 575px){
+    .form-size {
+    height: 540px;
+    }
+    .card {
+    width: 372px;
+    }
+    form {
+    padding: 47px 14px;
+    }
+    .header img {
+    margin-bottom: 20px;
+    width: 50%;
+    }
+    .header h3 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    }
+    .header p {
+    font-size: 13px;
+    margin-bottom: 23px;
+    }
+    .inputfield {
+    padding: 16px !important;
+    }
+    .btncustom {
+    padding: 8px 0 !important;
+    }
+}
