@@ -14,5 +14,7 @@ yarn-error.log
 /.idea
 /.vscode
 .DS_Store
+index.php
+.htaccess
 storage/fonts
 release_latest_tag.sh
