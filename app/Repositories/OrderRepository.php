@@ -122,7 +122,7 @@ class OrderRepository extends Repository
             });
         }
 
-        return $orders->latest()->get();
+        return $orders->latest()->paginate();
     }
 
     public function orderListByStatus($status = null)
