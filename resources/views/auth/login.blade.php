@@ -14,6 +14,7 @@
   <!-- Font awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <title>Log In</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -39,9 +40,9 @@
 
                 <div class="d-flex  align-items-center inputBox">
                   <div class="input w-100 position-relative">
-                    <input type="password" name="password" class="form-control inputfield" placeholder="Password">
+                    <input type="password" name="password" class="form-control inputfield password_field" placeholder="Password">
                     <span class="eye">
-                        <i class="fa-solid fa-eye-slash"></i>
+                        <i class="fa-solid fa-eye-slash password_visibility"></i>
                     </span>
                   </div>
                 </div>
@@ -59,4 +60,28 @@
   </div>
 </body>
 
+<script>
+
+$(() => {
+
+  $('.password_visibility').click(() => {
+
+    if ($('.password_visibility').hasClass('fa-eye-slash')) {
+
+      $('.password_visibility').removeClass('fa-eye-slash');
+      $('.password_visibility').addClass('fa-eye');
+      $('.password_field').attr('type','text')
+
+    } else {
+
+      $('.password_visibility').removeClass('fa-eye');
+      $('.password_visibility').addClass('fa-eye-slash');
+      $('.password_field').attr('type','password')
+    }
+
+  });
+
+});
+
+</script>
 </html>
