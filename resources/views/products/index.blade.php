@@ -55,7 +55,11 @@
                                     </td>
                                     <td>{{ $product->variant->name }}</td>
                                     <td>
-                                        <del>₦{{  $product->old_price ? $product->old_price: '00'  }}</del>
+                                        @if ($product->price && $product->price != 0)
+                                            <del>₦{{  $product->old_price ? $product->old_price: '00'  }}</del>
+                                        @else
+                                            ₦{{  $product->old_price ? $product->old_price: '00'  }}
+                                        @endif
                                     </td>
                                     <td>₦{{ $product->price }}</td>
                                     <td>
