@@ -33,6 +33,7 @@ class ProductRequest extends FormRequest
             'name_bn' => ['nullable', 'string', 'max:256'],
             'slug' => ['nullable', 'string', 'max:256'],
             'price' => ['required', 'numeric'],
+            'discount_price' => ['numeric'],
             'image' => [$imgRule, 'image', 'mimes:jpg,jpeg,png,gif,svg'],
             'service_id' => ['required', 'exists:services,id'],
             'variant_id' => ['required', 'exists:variants,id'],

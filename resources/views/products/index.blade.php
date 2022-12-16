@@ -39,8 +39,8 @@
                                     {{-- <th scope="col">নাম</th> --}}
                                     <th scope="col">Thumbnail</th>
                                     <th scope="col">Variant</th>
+                                    <th scope="col">Price</th>
                                     <th scope="col">Discount price</th>
-                                    <th scope="col">Proce</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Action</th>
                                 </tr>
@@ -54,10 +54,10 @@
                                         <img width="100" src="{{ $product->thumbnailPath }}" alt="">
                                     </td>
                                     <td>{{ $product->variant->name }}</td>
-                                    <td>₦{{ $product->price }}</td>
                                     <td>
                                         <del>₦{{  $product->old_price ? $product->old_price: '00'  }}</del>
                                     </td>
+                                    <td>₦{{ $product->price }}</td>
                                     <td>
                                         <label class="switch">
                                             <a href="{{ route('product.status.toggle', $product->id) }}">

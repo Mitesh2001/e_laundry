@@ -23,7 +23,9 @@
 
                         {{-- <x-input name="name_bn" placeholder="Product name bangla" value="{{ old('name_bn') ?? $product->name_bn }}" /> --}}
 
-                        <x-input name="price" placeholder="price" value="{{ old('price') ?? $product->price }}" />
+                        <x-input name="price" placeholder="price" value="{{ old('price') ?? $product->old_price }}" />
+
+                        <x-input name="discount_price" type="number" placeholder="Discount Price" value="{{ old('price') ?? $product->price }}"/>
 
                         <input type="hidden" id="slug" name="slug" class="form-control input-default" value="{{ old('slug') ?? $product->slug }}">
 

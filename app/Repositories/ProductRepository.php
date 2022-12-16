@@ -70,7 +70,8 @@ class ProductRepository extends Repository
             'thumbnail_id' => $thumbnail->id,
             'service_id' => $request->service_id,
             'variant_id' => $request->variant_id,
-            'price' => $request->price,
+            'price' => $request->discount_price,
+            'old_price' => $request->price,
             'is_active' => $request->active ?? 0,
         ]);
     }
@@ -95,8 +96,8 @@ class ProductRepository extends Repository
             'slug' => $request->slug,
             'service_id' => $request->service_id,
             'variant_id' => $request->variant_id,
-            'price' => $request->price,
-            'old_price' => $oldPrice,
+            'price' => $request->discount_price,
+            'old_price' => $request->price,
             'is_active' => $request->active ?? 0,
         ]);
         return $product;

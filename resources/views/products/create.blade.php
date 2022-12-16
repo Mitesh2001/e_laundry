@@ -22,6 +22,8 @@
 
                             <x-input name="price" type="number" placeholder="price"/>
 
+                            <x-input name="discount_price" type="number" placeholder="Discount Price"/>
+
                             <input type="hidden" id="slug" name="slug" class="form-control input-default" value="{{ old('slug') }}">
 
                             <x-select name="service_id">
