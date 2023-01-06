@@ -18,3 +18,5 @@ index.php
 .htaccess
 storage/fonts
 release_latest_tag.sh
+public/.htaccess
+public/index.php
