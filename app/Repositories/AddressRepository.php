@@ -24,6 +24,8 @@ class AddressRepository extends Repository
         return $this->model()::create([
             'customer_id' => auth()->user()->customer->id,
             'address_name' => $request->address_name,
+            'city' => $request->city,
+            'country' => $request->country,
             'road_no' => $request->road_no,
             'house_no' => $request->house_no,
             'flat_no' => $request->flat_no,
@@ -43,6 +45,8 @@ class AddressRepository extends Repository
         $address->update([
             'customer_id' => auth()->user()->customer->id,
             'address_name' => $request->address_name,
+            'city' => $request->city,
+            'country' => $request->country,
             'road_no' => $request->road_no,
             'house_no' => $request->house_no,
             'flat_no' => $request->flat_no,

@@ -25,6 +25,8 @@ class AddressRequest extends FormRequest
     {
         return [
             'address_name' => ['required', 'string', 'max:256'],
+            'city' => ['required'],
+            'country' => ['required'],
             'road_no' => ['required'],
             'house_no' => ['required'],
             'flat_no' => ['required'],

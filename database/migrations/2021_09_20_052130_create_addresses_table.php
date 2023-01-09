@@ -19,6 +19,8 @@ class CreateAddressesTable extends Migration
             $table->id();
             $table->foreignId('customer_id')->constrained((new Customer())->getTable());
             $table->string('address_name')->nullable();
+            $table->string('city')->nullable();
+            $table->string('country')->nullable();
             $table->string('road_no')->nullable();
             $table->string('house_no')->nullable();
             $table->string('flat_no')->nullable();
