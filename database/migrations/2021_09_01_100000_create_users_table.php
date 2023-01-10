@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->foreignId('profile_photo_id')->nullable()->constrained((new Media())->getTable());
             $table->enum('gender', config('enums.ganders'))->nullable();
             $table->string('alternative_phone')->nullable();
+            $table->text('fcm_token')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
