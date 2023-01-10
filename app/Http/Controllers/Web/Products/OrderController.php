@@ -43,7 +43,17 @@ class OrderController extends Controller
         if (!in_array($status, config('enums.order_status'))) {
             return back()->with('error', 'Invalid status');
         }
+
         $this->orderRepo->StatusUpdateByRequest($order, $status);
+
+        $notificationDetails =  [
+            'title' => "Order Number : #IM".$order->id,
+            'message' => "Your order status has been changed to '".request('status')."' !"
+        ];
+
+        $this->sendNotification($notificationDetails,$order->customer_id);
+
+        $this->sendPushNotification($notificationDetails,$order->customer_id);
 
         return back()->with('success' . 'Order status is updated successfully');
     }
@@ -96,4 +106,15 @@ class OrderController extends Controller
 
         return $pdf->stream($order->prefix . $order->order_code . ' - invioce.pdf');
     }
+
+    public function sendNotification($details,$customer_id)
+    {
+        (new OrderRepository())->sendNotificationByRequest($customer_id,$details);
+    }
+
+    public function sendPushNotification($details,$customer_id)
+    {
+        (new OrderRepository())->sendPushNotification($customer_id,$details);
+    }
+
 }

@@ -30,7 +30,7 @@ class OrderController extends Controller
 
         $notificationDetails =  [
             'title' => "Order Number : #IM".$order->id,
-            'message' => "Your order has been placed successfully !"
+            'message' => "Your order status has been changes successfully !"
         ];
 
         $this->sendNotification($notificationDetails);
@@ -44,12 +44,12 @@ class OrderController extends Controller
 
     public function sendNotification($details)
     {
-        (new OrderRepository())->sendNotificationByRequest($details);
+        (new OrderRepository())->sendNotificationByRequest(auth()->id(),$details);
     }
 
     public function sendPushNotification($details)
     {
-        (new OrderRepository())->sendPushNotification($details);
+        (new OrderRepository())->sendPushNotification(auth()->id(),$details);
     }
 
 }

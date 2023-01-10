@@ -4,6 +4,7 @@
 namespace App\Repositories;
 
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\OrderRequest;
 use App\Models\Additional;
@@ -159,15 +160,15 @@ class OrderRepository extends Repository
         return $this->model()::find($id);
     }
 
-    public function sendNotificationByRequest($details)
+    public function sendNotificationByRequest($userId,$details)
     {
-        $user = auth()->user();
+        $user = User::find($userId);
         $user->notify(new OrderNotification($details));
     }
 
-    public function sendPushNotification($details)
+    public function sendPushNotification($userId,$details)
     {
-        $user = auth()->user();
+        $user = User::find($userId);
         $fields = array(
             'registration_ids' => [$user->fcm_token],
             'data' => array('message' => json_encode($details))
