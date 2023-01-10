@@ -28,8 +28,28 @@ class OrderController extends Controller
             $order->additionals()->sync($request->additional_service_id);
         }
 
+        $notificationDetails =  [
+            'title' => "Order Number : #IM".$order->id,
+            'message' => "Your order has been placed successfully !"
+        ];
+
+        $this->sendNotification($notificationDetails);
+
+        $this->sendPushNotification($notificationDetails);
+
         return $this->json('order is added successfully', [
             'order' => new OrderResource($order)
         ]);
     }
+
+    public function sendNotification($details)
+    {
+        (new OrderRepository())->sendNotificationByRequest($details);
+    }
+
+    public function sendPushNotification($details)
+    {
+        (new OrderRepository())->sendPushNotification($details);
+    }
+
 }

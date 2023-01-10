@@ -136,4 +136,12 @@ class UserRepository extends Repository
 
         return $thumbnail;
     }
+
+    public function getAllNotifications()
+    {
+        $user = auth()->user();
+        // return $user->notifications->sortBy('created_at');
+        return $user->notifications;
+    }
+
 }

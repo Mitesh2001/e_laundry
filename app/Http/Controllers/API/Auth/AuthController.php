@@ -101,6 +101,7 @@ class AuthController extends Controller
         $user = $this->userRepo->findActiveByContact($request->contact);
 
         if (!is_null($user) && Hash::check($request->password, $user->password)) {
+            $this->setFcmToken($user,$request->fcm_token);
             return $user;
         }
 
@@ -123,4 +124,10 @@ class AuthController extends Controller
 
         return $this->json('Sorry, your contact is not found!');
     }
+
+    public function setFcmToken($user,$token)
+    {
+        $user->update(['fcm_token' => $token]);
+    }
+
 }

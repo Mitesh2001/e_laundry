@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\OrderRequest;
 use App\Models\Additional;
 use App\Models\Coupon;
+use App\Notifications\OrderNotification;
 
 class OrderRepository extends Repository
 {
@@ -156,5 +157,48 @@ class OrderRepository extends Repository
     public function findById($id)
     {
         return $this->model()::find($id);
+    }
+
+    public function sendNotificationByRequest($details)
+    {
+        $user = auth()->user();
+        $user->notify(new OrderNotification($details));
+    }
+
+    public function sendPushNotification($details)
+    {
+        $user = auth()->user();
+        $fields = array(
+            'registration_ids' => [$user->fcm_token],
+            'data' => array('message' => json_encode($details))
+        );
+
+        //firebase server url to send the curl request
+        $url = 'https://fcm.googleapis.com/fcm/send';
+
+        //building headers for the request
+        $headers = array(
+            'Authorization:key=AAAA3Px39mI:APA91bFlzQJw8MHJybmzlAI4ZHzB-Cx9GGkaP4Tl0T-KKl6anW0dYCK3TI9Mu0xRzE81nVwZBybTEkmmNncL1TaBOI994J_i2Ti33NGHcsg9HecI1GZ0PkESO1p97hhWUNXszoUU1FIx',
+            'Content-Type: application/json'
+        );
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
+
+        $result = curl_exec($ch);
+
+        if ($result === FALSE) {
+        die('Curl failed: ' . curl_error($ch));
+        }
+        curl_close($ch);
+
+        return $result;
+        //echo $result;
+
     }
 }

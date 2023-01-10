@@ -62,6 +62,9 @@ Route::middleware(['auth:api', 'role:customer'])->group(function () {
     Route::post('/ratings', [RatingController::class, 'store']);
 
     Route::post('/contact/verify', [AuthController::class, 'mobileVerify']);
+
+    Route::get('user-notifications', [UserController::class,'notificationsList']);
+
 });
 
 Route::get('/banners', [BannerController::class, 'index']);
