@@ -28,17 +28,22 @@ class OrderRepository extends Repository
         $lastOrder = $this->model()::latest('id')->first();
 
         $customer = auth()->user()->customer;
-        $getAmount = $this->getAmount($request);
+        // $getAmount = $this->getAmount($request);
 
         $order = $this->model()::create([
             'customer_id' => $customer->id,
             'order_code' => str_pad($lastOrder ? $lastOrder->id + 1 : 10, 6, "0", STR_PAD_LEFT),
             'prefix' => 'IM',
             'coupon_id' => $request->coupon_id,
-            'discount' => $getAmount['discount'],
+            'discount' => $request->discount,
             'pick_at' => $request->pick_at,
-            'amount' => $getAmount['oldPrice'],
-            'total_amount' => $getAmount['total'],
+            'amount' => $request->sub_total,
+            'total_amount' => $request->grand_total,
+            'total' => $request->total,
+            'coupon_discount' => $request->coupon_discount,
+            'vat' => $request->vat,
+            'vat_type' => $request->vat_type,
+            'delivery_cost' => $request->delivery_cost,
             'payment_status' => config('enums.payment_status.pending'),
             'payment_type' => config('enums.payment_types.cash_on_delivery'),
             'order_status' => config('enums.payment_status.pending'),
