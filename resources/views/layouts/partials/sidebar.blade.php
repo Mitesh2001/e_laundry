@@ -107,8 +107,13 @@
                             </li>
                             @endforeach
                             <li class="nav-item">
-                                <a class="nav-link {{ request()->routeIs('settings/send-push-notifications.*') ? 'active':'' }}" href="{{ route('send.pushnotifications') }}">
+                                <a class="nav-link {{ request()->routeIs('send-push-notifications.*') ? 'active':'' }}" href="{{ route('send.pushnotifications') }}">
                                     <span class="nav-link-text">{{ __('Notification') }}</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ request()->routeIs('charges.*') ? 'active':'' }}" href="{{ route('charges') }}">
+                                    <span class="nav-link-text">{{ __('Charges') }}</span>
                                 </a>
                             </li>
                         </ul>

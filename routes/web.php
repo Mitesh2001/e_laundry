@@ -14,6 +14,7 @@ use App\Http\Controllers\Web\Services\ServiceController;
 use App\Http\Controllers\Web\Variants\VariantController;
 use App\Http\Controllers\Web\Customers\CustomerController;
 use App\Http\Controllers\Web\Services\AdditionalServiceController;
+use App\Http\Controllers\Web\ChargeController;
 
 /*
 +--------------------------------------------------------------------------
@@ -109,4 +110,9 @@ Route::middleware(['auth', 'role:admin|visitor|root'])->group(function () {
     Route::post('/coupons', [CouponController::class, 'store'])->name('coupon.store')->middleware('onlyAdmin');
     Route::get('/coupons/{coupon}/edit', [CouponController::class, 'edit'])->name('coupon.edit');
     Route::put('/coupons/{coupon}', [CouponController::class, 'update'])->name('coupon.update')->middleware('onlyAdmin');
+
+    // Charges
+
+    Route::get('charges', [ChargeController::class,'index'])->name('charges');
+    Route::post('set-charges', [ChargeController::class,'setCharges'])->name('charges.set');
 });
