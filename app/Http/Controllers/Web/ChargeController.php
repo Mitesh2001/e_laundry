@@ -10,17 +10,17 @@ class ChargeController extends Controller
 {
     public function index()
     {
-        return view('settings.charges');
+        $charges = Charge::first();
+        return view('settings.charges',['charge' => $charges]);
     }
 
     public function setCharges(Request $request)
     {
-        $charge = new Charge();
+        $charge = Charge::first();
         $charge->vat = $request->vat;
         $charge->vat_type = $request->vat_type;
-        $charge->delivery_chargevat = $request->delivery_charge;
+        $charge->delivery_charge = $request->delivery_charge;
         $charge->save();
         return back();
     }
-
 }

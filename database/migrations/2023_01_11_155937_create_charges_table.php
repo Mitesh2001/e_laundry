@@ -17,6 +17,7 @@ class CreateChargesTable extends Migration
             $table->id();
             $table->string('vat')->nullable();
             $table->string('vat_type')->nullable();
+            $table->string('delivery_charge')->default(0);
             $table->string('user_id')->nullable();
             $table->timestamps();
         });
