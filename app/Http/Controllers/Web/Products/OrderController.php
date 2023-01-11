@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web\Products;
 use PDF;
 use Carbon\Carbon;
 use App\Models\Order;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\OrderRepository;
@@ -51,9 +52,11 @@ class OrderController extends Controller
             'message' => "Your order status has been changed to '".request('status')."' !"
         ];
 
-        $this->sendNotification($notificationDetails,$order->customer_id);
+        $customer = Customer::find($order->customer_id);
 
-        $this->sendPushNotification($notificationDetails,$order->customer_id);
+        $this->sendNotification($notificationDetails,$customer->user->id);
+
+        $this->sendPushNotification($notificationDetails,$customer->user->id);
 
         return back()->with('success' . 'Order status is updated successfully');
     }
