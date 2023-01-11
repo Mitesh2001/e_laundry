@@ -106,6 +106,11 @@
                                 <a class="nav-link" href="{{ route('setting.show', $index) }}">{{ $item }}</a>
                             </li>
                             @endforeach
+                            <li class="nav-item">
+                                <a class="nav-link {{ request()->routeIs('settings/send-push-notifications.*') ? 'active':'' }}" href="{{ route('send.pushnotifications') }}">
+                                    <span class="nav-link-text">{{ __('Notification') }}</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>

@@ -100,6 +100,8 @@ Route::middleware(['auth', 'role:admin|visitor|root'])->group(function () {
     Route::get('/settings/{slug}', [SettingController::class, 'show'])->name('setting.show');
     Route::get('/settings/{slug}/edit', [SettingController::class, 'edit'])->name('setting.edit');
     Route::put('/settings/{setting}', [SettingController::class, 'update'])->name('setting.update')->middleware('onlyAdmin');
+    Route::get('/send-push-notifications', [SettingController::class, 'pushNotifications'])->name('send.pushnotifications')->middleware('onlyAdmin');
+    Route::post('/notify-users', [SettingController::class, 'notifyUsers'])->name('notify.users')->middleware('onlyAdmin');
 
     // Coupon Routes
     Route::get('/coupons', [CouponController::class, 'index'])->name('coupon.index');
