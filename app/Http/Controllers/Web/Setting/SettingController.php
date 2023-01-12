@@ -50,7 +50,7 @@ class SettingController extends Controller
             $users = User::all();
 
             $notificationDetails =  [
-                'title' => "New Notification",
+                'title' => $request->title,
                 'message' => $request->notification_content
             ];
 

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container-fluid mt-5">
     <div class="row">
         <div class="col-xl-12 col-xxl-12 col-lg-12 m-auto">
@@ -17,6 +18,10 @@
                                 <option selected>select user</option>
                                 <option value="all_users">All Users</option>
                             </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="titleInput">Title</label>
+                            <input type="text" name="title" id="titleInput" class="form-control" />
                         </div>
                         <div class="form-group">
                             <label for="notification_content">Notification Content</label>
